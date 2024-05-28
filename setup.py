@@ -15,6 +15,7 @@ import os
 import pathlib
 import sys
 import sysconfig
+import platform
 
 from setuptools import setup
 
