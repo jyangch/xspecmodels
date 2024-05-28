@@ -58,8 +58,15 @@ out_dir.mkdir(exist_ok=True)
 # There's some attempt to be platform independent, but
 # is it worth it?
 #
+
+######## changed by jyangch ########
+# idea from wcwve
 libdir = HEADAS / sysconfig.get_config_var('platlibdir')
-suffix = sysconfig.get_config_var('SHLIB_SUFFIX')
+if platform.system() == 'Darwin':
+    suffix = '.dylib'
+else:
+    suffix = sysconfig.get_config_var('SHLIB_SUFFIX')
+######## changed by jyangch ########
 
 # The tricky thing is that we have XSFunctions, XSUtil, and XS as
 # arguments. So we can not just look for XS*, as that will match
